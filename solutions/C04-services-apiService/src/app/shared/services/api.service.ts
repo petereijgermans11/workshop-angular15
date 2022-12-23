@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {EMPTY, Observable} from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { City } from '../model/city.model';
 
@@ -16,7 +16,7 @@ export class ApiService {
   public getCities(): Observable<City[]> {
     return this.http.get<City[]>(API_URL + '/cities').pipe(
       map(response => {
-        const allCities = response;
+        const allCities: City[] = response;
         return allCities.map((city: City) => {
           return new City(
             city.id,
@@ -80,6 +80,6 @@ export class ApiService {
   private handleError(error: Response | any) {
     console.error('ApiService::handleError', error);
     console.info('Did you forget to start json server? (npm run json-server)');
-    return Observable.throw(error);
+    return EMPTY;
   }
 }

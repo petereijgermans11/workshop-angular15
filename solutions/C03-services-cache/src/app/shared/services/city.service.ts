@@ -7,8 +7,8 @@ import {catchError, map} from 'rxjs/operators';
 @Injectable()
 export class CityService {
   // private variable, acting as cache for cities
-  private cityCache: any[];
-  private observable: Observable<any>;
+  private cityCache: City[] | null;
+  private observable: Observable<any> | null;
 
   constructor(private http: HttpClient) {
   }

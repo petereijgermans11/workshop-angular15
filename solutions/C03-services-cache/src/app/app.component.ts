@@ -15,7 +15,7 @@ import {CityService} from './shared/services/city.service';
 export class AppComponent implements OnInit {
   // Properties
   public currentCity: City;
-  public cities: Observable<City[]>;
+  public cities: Observable<City[]> | null;
   public cityPhoto: string;
 
 

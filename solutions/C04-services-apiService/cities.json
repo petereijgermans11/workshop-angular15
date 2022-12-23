@@ -62,6 +62,13 @@
       "province": "",
       "rating": 0,
       "highlights": ""
+    },
+    {
+      "id": 356,
+      "name": "culemborg",
+      "province": "gelderland",
+      "rating": 0,
+      "highlights": "church"
     }
   ]
 }

@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   public currentCity: City;
   public cities: City[];
   public cityPhoto: string;
-  private sub: Subscription;
+  private subscription: Subscription;
 
   // Inject instance of CityService
   constructor(private cityService: CityService) {
@@ -25,12 +25,13 @@ export class AppComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.sub = this.cityService.getCities()
-      .subscribe(cityData => {						// 1. success handler
+    this.subscription = this.cityService.getCities()
+      .subscribe({
+        next: cityData => {						                            // 1. success handler
           this.cities = cityData
         },
-        err => console.log('ERROR: ', err),			// 2. error handler
-        () => console.log('Getting cities complete'));	// 3. complete handler
+        error: err => console.log('ERROR: ', err),			          // 2. error handler
+        complete: () => console.log('Getting cities complete')});	// 3. complete handler
   }
 
   public getCity(city: City): void {
@@ -41,6 +42,6 @@ export class AppComponent implements OnInit {
   public ngOnDestroy(): void {
     // If subscribed, we must unsubscribe before Angular destroys the component.
     // Failure to do so could create a memory leak.
-    this.sub.unsubscribe();
+    this.subscription.unsubscribe();
   }
 }

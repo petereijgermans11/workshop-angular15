@@ -16,7 +16,7 @@ import { Observable } from 'rxjs';
 // Class
 export class AppComponent implements OnInit {
   // Properties
-  public currentCity: Observable<City>;
+  public currentCity: Observable<City> | null;
   public cities: Observable<City[]>;
   public showCityForm: boolean = false;
 
@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
     this.currentCity = this.cityService.getCity(id);
   }
 
-  public addCity(cityForm) {
+  public addCity(cityForm: any) {
     // for now: generate random ID
     const randomId = Math.floor(Math.random() * 1000 + 1);
     const newCity = new City(

@@ -25,11 +25,12 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.subscription = this.cityService.getCities()
-      .subscribe(cityData => {
-          this.cities = cityData;
+      .subscribe({
+        next: cityData => {						                            // 1. success handler
+          this.cities = cityData
         },
-        err => console.log('FOUT: ', err),
-        () => console.log('Getting cities complete'));
+        error: err => console.log('ERROR: ', err),			          // 2. error handler
+        complete: () => console.log('Getting cities complete')});	// 3. complete handler
   }
 
   public getCity(city: City): void {
