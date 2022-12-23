@@ -28,6 +28,6 @@
 <!-- Two-way binding with extensive syntax-->
 <input type="text" class="form-control-lg"
 	   [value]="newCityExtended"
-	   (input)="newCityExtended = $event.target.value"
+	   (input)="newCityExtended = ($event.target as HTMLInputElement).value"
 	   placeholder="City..."/>
 <h2>{{ newCityExtended }}</h2>

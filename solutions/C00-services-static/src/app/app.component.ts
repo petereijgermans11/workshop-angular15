@@ -24,7 +24,7 @@ import {CityService} from "./shared/city.service";
 // Class
 export class AppComponent implements OnInit {
   // Properties
-  public currentCity: City;
+  public currentCity: City | undefined;
   public cities: City[];
   public cityPhoto: string;
 
@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
 
   public getCity(city: City): void {
     this.currentCity = this.cityService.getCity(city.id);
-    this.cityPhoto = `assets/img/${this.currentCity.name}.jpg`;
+    this.cityPhoto = `assets/img/${this.currentCity?.name}.jpg`;
     console.log('Fetched city:', this.currentCity);
   }
 }

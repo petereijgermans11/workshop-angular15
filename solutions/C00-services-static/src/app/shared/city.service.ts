@@ -16,12 +16,12 @@ export class CityService {
 	}
 
 	// return city based on ID
-  public getCity(id: number): City {
-		//return this.cities.find(c => c.id === id);
+  public getCity(id: number): City | undefined {
+    return this.cities.find(c => c.id === id);
 
 		// another option: using .filter(). If you
 		// would expect *multiple* results, and thus want to return an array
 		// you would use something like:
-        return this.cities.filter(c => c.name.includes('e')  )[0][1][3]; // In this case: index [0] b/c we only want 1 city
+        //return this.cities.filter(c => c.name.includes('e')  )[0][1][3]; // In this case: index [0] b/c we only want 1 city
 	}
 }

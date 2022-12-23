@@ -9,7 +9,7 @@ import {City} from './shared/city.model'
 
 // Class
 export class AppComponent {
-  public newCityExtended: string = '';
+  public newCityExtended: any = '';
   public newCity: string = '';
 
   // Properties
