@@ -1,18 +1,26 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
+// Component(s)
 import { AppComponent } from './app.component';
+
+// Pipes
+import {FilterPipe} from './shared/pipes/filter.pipe';
+import {DefaultImagePipe} from "./shared/pipes/defaultImage.pipe";
+
+// Services
+import {CityService} from './shared/services/city.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, FilterPipe, DefaultImagePipe
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule, FormsModule, HttpClientModule
   ],
-  providers: [],
+  providers: [CityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

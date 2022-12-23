@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `
+    <h1>Hello World!</h1>
+    <h2>This is Angular</h2>
+    <reactive-form></reactive-form>
+    <a href="http://angular.io" target="_blank">Angular Website</a>
+  `
 })
-export class AppComponent {
-  title = 'F02-forms-model-driven-2';
+
+export class AppComponent implements OnInit {
+  constructor() {
+  }
+
+  public ngOnInit(): void {
+    console.log('Hello World - Angular is running');
+  }
 }
