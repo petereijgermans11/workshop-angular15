@@ -1,18 +1,20 @@
+// Angular Modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
+// Custom Components
 import { AppComponent } from './app.component';
 
+// Import services
+import { CityService } from './shared/services/city.service';
+
+// Module declaration
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, HttpClientModule],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
+  providers: [CityService] // DI voor service
 })
-export class AppModule { }
+export class AppModule {}
+
